@@ -1,10 +1,4 @@
-import React, {
-  Component,
-  useCallback,
-  useMemo,
-  useEffect,
-  useState,
-} from 'react';
+import React, { useCallback, useMemo, useEffect, useState } from 'react';
 import { Container, PhoneFrame, Title, ContentContainer } from './App.styled';
 import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm/ContactForm';
