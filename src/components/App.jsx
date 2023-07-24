@@ -41,14 +41,9 @@ export const App = () => {
     [contacts]
   );
 
-  const deleteContact = useCallback(
-    id => {
-      setContacts(prevState =>
-        prevState.contacts.filter(contact => contact.id !== id)
-      );
-    },
-    [contacts]
-  );
+  const deleteContact = useCallback(id => {
+    setContacts(prevState => prevState.filter(contact => contact.id !== id));
+  }, []);
 
   const changeFilter = useCallback(event => {
     setFilter(event.target.value);
@@ -62,8 +57,6 @@ export const App = () => {
   }, [contacts, filter]);
 
   useEffect(() => {
-    console.log('App componentDidMount');
-
     const storedContacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(storedContacts);
 
@@ -73,8 +66,6 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log('App componentDidUpdate');
-
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
